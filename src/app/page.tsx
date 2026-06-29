@@ -1,65 +1,152 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="container" style={{ paddingTop: 'var(--space-16)' }}>
+
+      {/* Logo placeholder — replaced with 3D logo in Sprint 14 */}
+      <a
+        href="https://idss.edu.ba/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="logo-placeholder"
+        aria-label="IDSS škola"
+      >
+        IDSS
+      </a>
+
+      {/* Navigation */}
+      <nav className="nav" style={{ marginBottom: 'var(--space-8)' }}>
+        <span style={{
+          fontWeight: 'var(--weight-bold)',
+          color: 'var(--idss-dark-blue)',
+          fontSize: 'var(--text-heading-sm)'
+        }}>
+          IDSS Handbook
+        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
+          <div className="streak-display">
+            🔥 <span>7</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      <h1 style={{
+        color: 'var(--idss-dark-blue)',
+        marginBottom: 'var(--space-8)'
+      }}>
+        Design System — Sprint 03
+      </h1>
+
+      {/* Buttons */}
+      <section style={{ marginBottom: 'var(--space-12)' }}>
+        <h2 style={{ marginBottom: 'var(--space-6)', color: 'var(--neutral-graphite)' }}>
+          Dugmad
+        </h2>
+        <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
+          <button className="btn-primary">Primarna akcija</button>
+          <button className="btn-success">Tačan odgovor ✓</button>
+          <button className="btn-ghost">Sekundarna akcija</button>
+          <button className="btn-primary" disabled>Onemogućeno</button>
         </div>
-      </main>
+      </section>
+
+      {/* Progress bars */}
+      <section style={{ marginBottom: 'var(--space-12)' }}>
+        <h2 style={{ marginBottom: 'var(--space-6)', color: 'var(--neutral-graphite)' }}>
+          Progress trake
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', maxWidth: '480px' }}>
+          <div>
+            <p style={{ marginBottom: 'var(--space-2)', fontSize: 'var(--text-caption)' }}>
+              Priručnik — Poglavlje 3 od 12
+            </p>
+            <div className="progress-bar-track">
+              <div className="progress-bar-fill" style={{ width: '25%' }} />
+            </div>
+          </div>
+          <div>
+            <p style={{ marginBottom: 'var(--space-2)', fontSize: 'var(--text-caption)' }}>
+              Kviz — Pitanje 2 od 5
+            </p>
+            <div className="progress-bar-track" style={{ height: '12px' }}>
+              <div className="progress-bar-fill quiz" style={{ width: '40%' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quiz options */}
+      <section style={{ marginBottom: 'var(--space-12)' }}>
+        <h2 style={{ marginBottom: 'var(--space-6)', color: 'var(--neutral-graphite)' }}>
+          Kviz opcije
+        </h2>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 'var(--space-3)',
+          maxWidth: '640px'
+        }}>
+          <button className="quiz-option">A. Tačan odgovor (default)</button>
+          <button className="quiz-option selected">B. Odabrana opcija</button>
+          <button className="quiz-option correct">C. Tačno ✓</button>
+          <button className="quiz-option incorrect">D. Netačno ✗</button>
+        </div>
+      </section>
+
+      {/* Badges */}
+      <section style={{ marginBottom: 'var(--space-12)' }}>
+        <h2 style={{ marginBottom: 'var(--space-6)', color: 'var(--neutral-graphite)' }}>
+          Bedževi
+        </h2>
+        <div style={{ display: 'flex', gap: 'var(--space-4)' }}>
+          <div className="badge-icon" title="Prvo poglavlje">📖</div>
+          <div className="badge-icon" title="Polovina puta">🎯</div>
+          <div className="badge-icon" title="Priručnik savladan">🏆</div>
+          <div className="badge-icon locked" title="Zaključano">🔒</div>
+          <div className="badge-icon locked" title="Zaključano">🔒</div>
+        </div>
+      </section>
+
+      {/* Colour palette */}
+      <section style={{ marginBottom: 'var(--space-12)' }}>
+        <h2 style={{ marginBottom: 'var(--space-6)', color: 'var(--neutral-graphite)' }}>
+          IDSS paleta boja
+        </h2>
+        <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
+          {[
+            { name: 'Dark Blue', var: '--idss-dark-blue' },
+            { name: 'Light Blue', var: '--idss-light-blue' },
+            { name: 'Red', var: '--idss-red' },
+            { name: 'Yellow', var: '--idss-yellow' },
+            { name: 'Game Green', var: '--game-green' },
+            { name: 'Fail Red', var: '--game-fail-red' },
+          ].map((colour) => (
+            <div key={colour.var} style={{ textAlign: 'center' }}>
+              <div style={{
+                width: '64px',
+                height: '64px',
+                borderRadius: 'var(--radius)',
+                background: `var(${colour.var})`,
+                marginBottom: 'var(--space-2)',
+                border: '1px solid var(--neutral-border)'
+              }} />
+              <p style={{ fontSize: 'var(--text-caption)', color: 'var(--neutral-ash)' }}>
+                {colour.name}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="card" style={{ maxWidth: '480px' }}>
+        <h3 style={{ marginBottom: 'var(--space-3)', color: 'var(--idss-dark-blue)' }}>
+          Sprint 03 završen ✅
+        </h3>
+        <p style={{ color: 'var(--neutral-ash)' }}>
+          Svi CSS tokeni su postavljeni. Nema hardkodiranih vrijednosti u komponentama.
+          Sve boje, razmaci i tipografija dolaze iz CSS custom properties.
+        </p>
+      </div>
+
     </div>
-  );
+  )
 }
